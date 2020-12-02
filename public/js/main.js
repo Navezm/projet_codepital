@@ -1,18 +1,17 @@
 // Lieux
 import {salleAttente, cimetiere, pharmacie} from "./lieu.js";
 
-// Traitements
-import {ctrl, save, check, ventoline, f12} from "./pharmacie.js";
-
 // Diagnostiques
-import {malIndenté, unsave, error, azmatique, syntaxeError} from "./maladie.js";
+import {tableauMaladie} from "./maladie.js";
 
 // Patient
+import {marcus, optimus, sangoku, darthVader, semicolon} from "./patient.js";
 
+// Chat
 let chat;
 
 // Docteur 
-let doctor = {
+export let doctor = {
     nom: "Debugger",
     argent: 0,
     cabinet: [chat = {
@@ -33,17 +32,15 @@ let doctor = {
     },
 };
 
+console.log(salleAttente);
 console.log(doctor);
-
-// chat.miauler();
-// Chat
-// let chat = {
-//     nom: "Chat de ses morts",
-//     miauler(){
-//         setInterval(() => {
-//             console.log(`Miaou !`);
-//         }, 2000);
-//     },
-// };
-
 console.log(pharmacie);
+
+marcus.paye("Debugger");
+console.log(marcus);
+marcus.goTo("pharmacie");
+console.log(tableauMaladie);
+
+console.log(marcus);
+console.log(pharmacie);
+console.log(doctor);
