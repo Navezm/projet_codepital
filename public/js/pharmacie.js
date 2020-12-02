@@ -1,4 +1,4 @@
-class Traitement{
+export class Traitement{
     constructor(traitement, prix){
         this.traitement = traitement;
         this.prix = prix;

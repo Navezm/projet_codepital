@@ -11,7 +11,7 @@
 |Sangoku|404|80|vide|malade
 |DarthVader|azmatique|110|vide|malade
 |Semicolon|syntaxError|60|vide|malade
-<!-- ​ -->
+
 ## Description du doctor
 >Le doctor lui reçoit les patients dans son cabinet. Tout d'abord il les diagnostiques puis se fait payé avant de préscrire un traitement. Attention le doctor fait à chaque fois sortir le patient de son cabinet avant de prendre le suivant. Dans son cabinet il y a son chat de race sphynx pour garder un environemment stérile. Son chat miaule toutes les deux secondes dans la console(bonus). La consultation coûte 50€. Les patients son dans un état de traitement avant de sortir du cabinet.
 ​

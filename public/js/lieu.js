@@ -1,3 +1,5 @@
+import {ctrl, save, check, ventoline, f12} from "./pharmacie.js";
+
 class Lieu {
     constructor(nom){
         this.nom = nom;
@@ -6,9 +8,9 @@ class Lieu {
 };
 
 class Pharm extends Lieu{
-    constructor(nom){
+    constructor(nom, classe){
         super(nom);
-        this.stock = [];
+        this.stock = [],
         this.argent = 0;
     };
 };
@@ -16,3 +18,5 @@ class Pharm extends Lieu{
 export let salleAttente = new Lieu("salleAttente");
 export let cimetiere = new Lieu("cimetiere");
 export let pharmacie = new Pharm("pharmacie");
+
+pharmacie.stock.push(ctrl, save, check, ventoline, f12);
