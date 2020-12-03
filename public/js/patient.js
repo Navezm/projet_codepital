@@ -1,5 +1,6 @@
 import {cimetiere, pharmacie, salleAttente} from "./lieu.js";
 import {doctor} from "./main.js";
+import {tableauMaladie} from "./maladie.js";
 
 class Patient{
     constructor (nom, maladie, argent, etatSante){
@@ -14,65 +15,33 @@ class Patient{
         if (lieu == "pharmacie"){
             pharmacie.personnes.push(this);
             salleAttente.personnes.splice(salleAttente.personnes.indexOf(this), 1);
+            console.log(`Je me meus vers l'apothicaire`);
         } else {
             console.log(`Error`);
         }
     };
     takeCare(para){
         if (para == "acheter"){
-            switch (this.traitement) {
-                case ("ctrl+maj+f"):
-                    if (this.argent < pharmacie.stock.ctrl.prix){
-                        cimetiere.personnes.push(this);
-                        pharmacie.personnes.splice(pharmacie.personnes.indexOf(this), 1);
+            for (let i = 0; i < pharmacie.stock.length; i++) {
+                if (this.traitement == pharmacie.stock[i].nom){
+                    if (this.argent >= pharmacie.stock[i].prix){
+                        this.argent = this.argent - pharmacie.stock[i].prix;
+                        pharmacie.argent = pharmacie.argent + pharmacie.stock[i].prix;
+                        this.poche.push(pharmacie.stock[i]);
+                        console.log(`J'ai bien acheté mon remède`);
                     } else {
-                        this.poche.push(pharmacie.stock.ctrl);
-                        this.argent =- pharmacie.stock.ctrl.prix;
-                    };
-                    break;
-                case ("saveOnFocusChange"):
-                    if (this.argent < pharmacie.stock.save.prix){
                         cimetiere.personnes.push(this);
-                        pharmacie.personnes.splice(pharmacie.personnes.indexOf(this), 1);
-                    } else {
-                        this.poche.push(pharmacie.stock.save);
-                        this.argent =- pharmacie.stock.save.prix;
+                        console.log(`Too bad t'es trop pauvre pour rester en vie`);
                     };
-                    break;
-                case ("CheckLinkRelation"):
-                    if (this.argent < pharmacie.stock.check.prix){
-                        cimetiere.personnes.push(this);
-                        pharmacie.personnes.splice(pharmacie.personnes.indexOf(this), 1);
-                    } else {
-                        this.poche.push(pharmacie.stock.check);
-                        this.argent =- pharmacie.stock.check.prix;
-                    };
-                    break;
-                case ("Ventoline"):
-                    if (this.argent < pharmacie.stock.ventoline.prix){
-                        cimetiere.personnes.push(this);
-                        pharmacie.personnes.splice(pharmacie.personnes.indexOf(this), 1);
-                    } else {
-                        this.poche.push(pharmacie.stock.ventoline);
-                        this.argent =- pharmacie.stock.ventoline.prix;
-                    };
-                    break;
-                case ("f12+doc"):
-                    if (this.argent < pharmacie.stock.f12.prix){
-                        cimetiere.personnes.push(this);
-                        pharmacie.personnes.splice(pharmacie.personnes.indexOf(this), 1);
-                    } else {
-                        this.poche.push(pharmacie.stock.f12);
-                        this.argent =- pharmacie.stock.f12.prix;
-                    };
-                    break;
-            };  
+                };
+            }; 
         } else if (para == "avaler"){
             if (this.poche.length == 0){
                 console.log(`Ta besace est trop légère`);
             } else {
                 this.poche.pop();
                 this.etatSante = "bonne santé";
+                console.log(`J'ai pris ma médecine`);
             }
         };
     };    
@@ -80,6 +49,7 @@ class Patient{
         if(personne == "Debugger"){
             this.argent = this.argent - 50;
             doctor.argent = doctor.argent + 50;
+            console.log(`Docteur Debugger a récupéré son arrhes`);
         };
     };
 };

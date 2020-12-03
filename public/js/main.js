@@ -31,16 +31,3 @@ export let doctor = {
         
     },
 };
-
-console.log(salleAttente);
-console.log(doctor);
-console.log(pharmacie);
-
-marcus.paye("Debugger");
-console.log(marcus);
-marcus.goTo("pharmacie");
-console.log(tableauMaladie);
-
-console.log(marcus);
-console.log(pharmacie);
-console.log(doctor);
