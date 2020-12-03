@@ -1,5 +1,5 @@
 // Lieux
-import {salleAttente, cimetiere, pharmacie} from "./lieu.js";
+import {salleAttente, cimetiere, pharmacie, taverne} from "./lieu.js";
 
 // Diagnostiques
 import {tableauMaladie} from "./maladie.js";
@@ -22,12 +22,18 @@ export let doctor = {
         }, 2000);},
     }],
     diagnostique(){
-        
+        for (let i = 0; i < tableauMaladie.length; i++) {
+            if (this.cabinet[1].maladie == tableauMaladie[i].maladie){
+                this.cabinet[1].traitement == tableauMaladie[i].traitement;
+            };
+        };
     },
-    patientIn(){
-        
+    patientIn(name){
+        doctor.cabinet.push(salleAttente.personnes.indexOf(name));
+        salleAttente.personnes.splice(salleAttente.personnes.indexOf(name), 1)
     },
     patientOut(){
-        
+        salleAttente.personnes.push(doctor.cabinet[1]);
+        doctor.cabinet.pop();
     },
 };

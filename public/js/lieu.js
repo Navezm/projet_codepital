@@ -18,5 +18,6 @@ class Pharm extends Lieu{
 export let salleAttente = new Lieu("salleAttente");
 export let cimetiere = new Lieu("cimetiere");
 export let pharmacie = new Pharm("pharmacie");
+export let taverne = new Lieu("taverne");
 
 pharmacie.stock.push(ctrl, save, check, ventoline, f12);
