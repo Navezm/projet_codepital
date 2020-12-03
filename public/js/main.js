@@ -24,16 +24,37 @@ export let doctor = {
     diagnostique(){
         for (let i = 0; i < tableauMaladie.length; i++) {
             if (this.cabinet[1].maladie == tableauMaladie[i].maladie){
-                this.cabinet[1].traitement == tableauMaladie[i].traitement;
+                this.cabinet[1].traitement = tableauMaladie[i].traitement;
+                console.log(`Mon cher ${this.cabinet[1].nom} votre souffrance est ${this.cabinet[1].maladie}. Donne argent maintenant !`);
             };
         };
     },
-    patientIn(name){
-        doctor.cabinet.push(salleAttente.personnes.indexOf(name));
-        salleAttente.personnes.splice(salleAttente.personnes.indexOf(name), 1)
+    patientIn(){
+        doctor.cabinet.push(salleAttente.personnes[0]);
+        console.log(`Amenez-moi messire ${salleAttente.personnes[0].nom}`);
+        salleAttente.personnes.splice(0, 1)
     },
     patientOut(){
         salleAttente.personnes.push(doctor.cabinet[1]);
         doctor.cabinet.pop();
+        console.log(`Casse toi sale pestiféré !`);
     },
 };
+
+// Début de notre aventure
+const salleLength = salleAttente.personnes.length;
+for (let i = 0; i < salleLength; i++){
+    doctor.patientIn();
+    doctor.diagnostique();
+    doctor.cabinet[1].paye("Debugger");
+    var namePatient = doctor.cabinet[1];
+    doctor.patientOut();
+    namePatient.goTo("pharmacie");
+    namePatient.takeCare("acheter");
+    namePatient.takeCare("avaler");
+    console.log("\n \n");
+};
+
+console.log(`Les Komrads ${cimetiere.personnes[0].nom}, ${cimetiere.personnes[1].nom} et ${cimetiere.personnes[2].nom} ont perdu l'étincelle de vie aujourd'hui. Pray for them !`);
+console.log(`\n \n`);
+console.log(`Tandis que les Komrads ${taverne.personnes[0].nom} et ${taverne.personnes[1].nom} s'avinent bien com' faut pour fêter leur santé renouvelée.`);
