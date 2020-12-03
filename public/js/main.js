@@ -43,6 +43,7 @@ export let doctor = {
 
 // Début de notre aventure
 const salleLength = salleAttente.personnes.length;
+chat.miauler();
 for (let i = 0; i < salleLength; i++){
     doctor.patientIn();
     doctor.diagnostique();
@@ -55,6 +56,8 @@ for (let i = 0; i < salleLength; i++){
     console.log("\n \n");
 };
 
+// En fin d'aventure
+console.log(`Le bilan de cette aventure est comme suit :`);
 console.log(`Les Komrads ${cimetiere.personnes[0].nom}, ${cimetiere.personnes[1].nom} et ${cimetiere.personnes[2].nom} ont perdu l'étincelle de vie aujourd'hui. Pray for them !`);
 console.log(`\n \n`);
-console.log(`Tandis que les Komrads ${taverne.personnes[0].nom} et ${taverne.personnes[1].nom} s'avinent bien com' faut pour fêter leur santé renouvelée.`);
+console.log(`Tandis que les Komrads ${taverne.personnes[0].nom} et ${taverne.personnes[1].nom} se détruisent bien com' faut à la taverne pour fêter leur santé renouvelée.`);
